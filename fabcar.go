@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"strconv"
 	"crypto/sha512"
-	"encoding/hex"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	sc "github.com/hyperledger/fabric/protos/peer"
