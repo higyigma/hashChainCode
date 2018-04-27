@@ -45,10 +45,10 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 
 func (s *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) sc.Response {
 	hashes := []Hesh{
-		Hesh{HashS: hex.EncodeToString(sha512.Sum512_256([]byte("Ryan")))},
-		Hesh{HashS: hex.EncodeToString(sha512.Sum512_256([]byte("Michael")))},
-		Hesh{HashS: hex.EncodeToString(sha512.Sum512_256([]byte("Raj")))},
-		Hesh{HashS: hex.EncodeToString(sha512.Sum512_256([]byte("NSA")))},
+		Hesh{HashS: hex.EncodeToString([]byte(sha512.Sum512_256([]byte("Ryan"))))},
+		Hesh{HashS: hex.EncodeToString([]byte(sha512.Sum512_256([]byte("Michael"))))},
+		Hesh{HashS: hex.EncodeToString([]byte(sha512.Sum512_256([]byte("Raj"))))},
+		Hesh{HashS: hex.EncodeToString([]byte(sha512.Sum512_256([]byte("NSA"))))},
 	}
 
 	i := 0
@@ -71,7 +71,7 @@ func (s *SmartContract) createCar(APIstub shim.ChaincodeStubInterface, args []st
 
 	temp := args[1]
 
-	var hesh = Hesh{HashS: hex.EncodeToString(sha512.Sum512_256([]byte(temp)))}
+	var hesh = Hesh{HashS: hex.EncodeToString([]byte(sha512.Sum512_256([]byte(temp))))}
 
 	carAsBytes, _ := json.Marshal(hesh)
 	APIstub.PutState(args[0], carAsBytes)
