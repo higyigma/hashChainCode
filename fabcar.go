@@ -18,7 +18,6 @@ type SmartContract struct {
 type Hesh struct {
 	HashS   string `json:"hash"`
 }
-sha_512_256 := sha512.Sum512_256([]byte("Toyota"))
 func (s *SmartContract) Init(APIstub shim.ChaincodeStubInterface) sc.Response {
 	return shim.Success(nil)
 }
